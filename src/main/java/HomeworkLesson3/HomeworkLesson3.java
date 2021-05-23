@@ -1,14 +1,16 @@
 package HomeworkLesson3;
 
+import java.util.Arrays;
+
 public class HomeworkLesson3 {
     public static void main(String[] args) {
         swap01();
         massiv100();
         freeArray();
         squareArray();
-        newArray(7, 3);
+        System.out.println(Arrays.toString(newArray(7, 3)));
         maxMinArray();
-        sumLeftRight(new int[]{3, 1, 4, 2, 6});
+        System.out.println(sumLeftRight(new int[]{3, 1, 4, 2, 6}));
 
 
     }
@@ -70,18 +72,17 @@ public class HomeworkLesson3 {
         System.out.println();
     }
 
-    public static void newArray(int len, int initialValue ) {
+    public static int[] newArray(int len, int initialValue ) {
         System.out.println("Задание №5");
-
         int[] n = new int [len];
         for (int i = 0; i <n.length ; i++) {
             n[i] = initialValue;
-            System.out.print(n[i] + ", ");
         }
-        System.out.println();
+        return n;
     }
 
     public static void maxMinArray() {
+        System.out.println();
         System.out.println("Задание №6");
         int [] arrays = { 4, 6,2,45,23,78,34,-67,94, 26};
         int max = arrays[0];
@@ -103,26 +104,26 @@ public class HomeworkLesson3 {
         System.out.println("Минимальный  индекс - " + minIndex +"  " +arrays[minIndex]);
     }
 
-    public static void sumLeftRight(int [] t) {
+    public static boolean sumLeftRight(int [] t) {
         System.out.println("Задание №7");
         int array = t.length;
-        int sumLeft = 0;
-        int sumRight = 0;
+        int sumLeft ;
+        int sumRight ;
         for (int i = 0; i < array -1; i++) {
+            sumLeft = 0;
+            sumRight = 0;
             for (int j = 0; j <=i ; j++) {
                 sumLeft += t[j];
             }
             for (int k = i+1; k <array ; k++) {
                 sumRight += t[k];
             }
-            if (sumLeft == sumRight) {
-                System.out.println( "1");
-            }else {
-                System.out.println('2');
+            if (sumLeft == sumRight) return true;
             }
-
-        }
-
+        return false;
     }
 }
+
+
+
 
